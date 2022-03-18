@@ -30,8 +30,8 @@ class TimezoneCalculator:
             name = TimezoneCalculator.special_cases(self, name_for_tz)
             user_tz = pytz.timezone(name)
             format = '%m-%d-%Y, %I:%M:%S %p %Z%z'
-            res = utc_time.astimezone(user_tz)
-            return res.strftime(format)
+            full_conversion = utc_time.astimezone(user_tz)
+            return full_conversion.strftime(format)
         except (pytz.exceptions.UnknownTimeZoneError, IndexError):
             return 'enter a vaild timezone please, or possibly check your spelling'
 
